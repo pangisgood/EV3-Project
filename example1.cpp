@@ -5,6 +5,7 @@ class Crain : public CraneCrane
 {
 private:
     ev3dev::touch_sensor touch_q;
+    ev3dev::color_sensor color_q;
     ev3dev::motor a;
     ev3dev::motor b; 
     ev3dev::motor c;
@@ -13,7 +14,7 @@ public:
     // Hardware Configuration
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
     {
-        x
+            
     }
     
     int m_speed;
