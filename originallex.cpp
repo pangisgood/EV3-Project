@@ -5,7 +5,6 @@ class Crain : public CraneCrane
 {
 private:
     ev3dev::touch_sensor touch_q;
-    ev3dev::color_sensor color_q;
     ev3dev::motor a;
     ev3dev::motor b; 
     ev3dev::motor c;
@@ -14,9 +13,8 @@ public:
     // Hardware Configuration
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
     {
-            
+        
     }
-    
     
     int m_speed;
     
@@ -101,7 +99,6 @@ void Crain::example_code()
 { //This function is for example, you should develop your own logics
     while(get_escape() == false)
     {
-        a.right;
         set_down(ev3dev::button::down.pressed());
         set_up(ev3dev::button::up.pressed());
         set_right(ev3dev::button::right.pressed());
@@ -148,12 +145,11 @@ int main()
 {     
     Crain crain;
     while(true){
-        
-         
+        if(crain.get_touch_pressed()==true){ 
             
         
         crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
-     
+        }
     }
 }
