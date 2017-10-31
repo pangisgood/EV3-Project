@@ -244,7 +244,6 @@ public:
   // Returns the number of `value<N>` attributes that will return a valid value
   // for the current mode.
   int num_values() const { return get_attr_int("num_values"); }
-
   // Units: read-only
   // Returns the units of the measured value for the current mode. May return
   // empty string
