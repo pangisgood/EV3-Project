@@ -210,3 +210,9 @@ int main()
 //     }
 // }
 
+
+     if(n > ultraq.distance_centimeters()){                            
+                     v[i] = c.position_sp();
+                     i++;
+                    
+ ev3dev::sound::speak("HI");}
