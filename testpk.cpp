@@ -195,3 +195,18 @@ int main()
     }
 }
 
+
+// void Crain::example_code()
+// { //This function is for example, you should develop your own logics
+//     while(get_escape() == false)
+//     {
+      
+    
+        
+//         if (colorSensor.raw(0,0,0))
+//         {
+//             ev3dev::sound::speak("HI");
+//         }
+//     }
+// }
+
