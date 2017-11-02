@@ -1,12 +1,12 @@
-all: ev3dev.a lang.o h_crane.o
-	arm-linux-gnueabi-g++-4.7 -L. -o lang lang.o h_crane.o -lev3dev
+all: ev3dev.a originalex.o h_crane.o
+	arm-linux-gnueabi-g++-4.7 -L. -o originalex originalex.o h_crane.o -lev3dev
 
 ev3dev.a: ev3dev.cpp 
 	arm-linux-gnueabi-g++-4.7 -c ev3dev.cpp -o ev3dev.o -std=c++11 -D_GLIBCXX_USE_NANOSLEEP
 	ar -r libev3dev.a ev3dev.o
 
-lang.o: lang.cpp
-		arm-linux-gnueabi-g++-4.7 -c lang.cpp -o lang.o -std=c++11 -D_GLIBCXX_USE_NANOSLEEP
+originalex.o: originalex.cpp
+		arm-linux-gnueabi-g++-4.7 -c originalex.cpp -o originalex.o -std=c++11 -D_GLIBCXX_USE_NANOSLEEP
 		
 h_crane.o: h_crane.cpp
 		arm-linux-gnueabi-g++-4.7 -c h_crane.cpp -o h_crane.o -std=c++11 -D_GLIBCXX_USE_NANOSLEEP

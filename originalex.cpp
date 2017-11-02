@@ -111,7 +111,7 @@ void Crain::example_code()
 }
 
 int main()
-{     
+{     Crain *crrain=new Crain;
     Crain crain;
     while(true){
         //if(crain.get_touch_pressed()==true)
@@ -122,5 +122,8 @@ int main()
   
         }
     }
+    delete crrain;
 }
+
+
 
