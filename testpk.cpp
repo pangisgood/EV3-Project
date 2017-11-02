@@ -211,50 +211,67 @@ int main()
 // }
 
 
-//      if(n > ultraq.distance_centimeters()){                            
-//                      v[i] = c.position_sp();
-//                      i++;
+     if(n > ultraq.distance_centimeters()){                            
+                     v[i] = c.position_sp();
+                     i++;
                     
-//  ev3dev::sound::speak("HI");}
+ ev3dev::sound::speak("HI");}
  
  
  
  
-// //a.duty_cycle()   
+//a.duty_cycle()   
  
  
-//  for (int i=2; i>=0; i--){
-//      move_left(v[i]);
+ for (int i=2; i>=0; i--){
+     move_left(v[i]);
      
-//      //내려가서 집고 다시 ending포인트로 돌아가기..?
-//  }
+     //내려가서 집고 다시 ending포인트로 돌아가기..?
+ }
+ 
+ 
+ 
+ 
 
 
-int *savep = new int[3];
-int i=0;
-while(crain.position_foot<660){
-    if(dis<15)
+void Crain::move_foot(int pos, int flag)
+{
+  
+    if (flag == 1)
     {
-      savep[i]  = crain.position_foot();
-       i=i+1;
+        pos *= -1;
     }
-    
+    c.set_position(0);
+    c.set_position_sp(pos);
+    c.set_speed_sp(get_speed());
+    c.run_to_abs_pos();
 }
 
 
 
- for (int i=2; i>=0; i--){
-     savep[i];
-     
-     //내려가서 집고 다시 ending포인트로 돌아가기..?
- }
+
+void Crain::move_foot(int pos, int flag)
+{
+  
+    if (flag == 1)
+    {
+        pos *= -1;
+    }
+    c.set_position(0);
+    c.set_position_sp(pos);
+    c.set_speed_sp(get_speed());
+    c.run_to_abs_pos();
+}
 
 
 
-delete savep[];
-
-
-
-Crain *crain=new Crain;
-
-delete crain;
+ void Crain::move_foot(int pos)      
+{
+    c.set_speed_sp(get_speed());
+    
+    
+    while(c.position() < pos ){
+        c.run_forever();}
+    c.set_stop_action("hold");
+    c.stop();
+}
