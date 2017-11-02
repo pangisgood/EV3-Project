@@ -216,3 +216,15 @@ int main()
                      i++;
                     
  ev3dev::sound::speak("HI");}
+ 
+ 
+ 
+ 
+//a.duty_cycle()   
+ 
+ 
+ for (int i=2; i>=0; i--){
+     move_left(v[i]);
+     
+     //내려가서 집고 다시 ending포인트로 돌아가기..?
+ }
