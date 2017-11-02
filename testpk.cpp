@@ -211,20 +211,44 @@ int main()
 // }
 
 
-     if(n > ultraq.distance_centimeters()){                            
-                     v[i] = c.position_sp();
-                     i++;
+//      if(n > ultraq.distance_centimeters()){                            
+//                      v[i] = c.position_sp();
+//                      i++;
                     
- ev3dev::sound::speak("HI");}
+//  ev3dev::sound::speak("HI");}
  
  
  
  
-//a.duty_cycle()   
+// //a.duty_cycle()   
  
  
+//  for (int i=2; i>=0; i--){
+//      move_left(v[i]);
+     
+//      //내려가서 집고 다시 ending포인트로 돌아가기..?
+//  }
+
+
+int *savep = new int[3];
+int i=0;
+while(crain.position_foot<660){
+    if(dis<15)
+    {
+      savep[i]  = crain.position_foot();
+       i=i+1;
+    }
+    
+}
+
+
+
  for (int i=2; i>=0; i--){
-     move_left(v[i]);
+     savep[i];
      
      //내려가서 집고 다시 ending포인트로 돌아가기..?
  }
+
+
+
+delete savep[];
