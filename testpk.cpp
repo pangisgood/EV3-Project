@@ -252,3 +252,9 @@ while(crain.position_foot<660){
 
 
 delete savep[];
+
+
+
+Crain *crain=new Crain;
+
+delete crain;
