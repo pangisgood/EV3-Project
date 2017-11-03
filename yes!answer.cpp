@@ -62,13 +62,13 @@ public:
 
     
 
-    bool is_black()
+    // bool is_black()   //이거 안씀
 
-    {
+    // {
 
-        return colorSensor.color() == 1;  //검정색이면 1==1 만족, 트루 반환?
+    //     return colorSensor.color() == 1;  //검정색이면 1==1 만족, 트루 반환?
 
-    }
+    // }
 
     
 
@@ -360,7 +360,7 @@ void Crain::getbackAuto()
 
     a.run_to_abs_pos();
 
-    sleep(1);
+    sleep(2);
 
     
 
@@ -370,7 +370,7 @@ void Crain::getbackAuto()
 
     b.run_to_abs_pos();
 
-    sleep(1);
+    sleep(2);
 
     
 
