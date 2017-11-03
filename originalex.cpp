@@ -110,20 +110,36 @@ void Crain::example_code()
         
 }
 
+// int main()
+// {     Crain *crrain=new Crain;
+//     Crain crain;
+//     while(true){
+//         //if(crain.get_touch_pressed()==true)
+//         { 
+            
+        
+//         crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+  
+//         }
+//     }
+//     delete crrain;
+// }
+
+
+
 int main()
-{     Crain *crrain=new Crain;
-    Crain crain;
+{     Crain *crain=new Crain;
+    //Crain crain;
     while(true){
         //if(crain.get_touch_pressed()==true)
         { 
             
         
-        crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+        Crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
     }
-    delete crrain;
+    delete Crain;
 }
-
-
-
+ 
+ 
