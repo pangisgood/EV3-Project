@@ -644,45 +644,10 @@ void Crain::execute()
 
             }
 
-            
-
-            
-
-    
-
-  
-
-    
-
-    
-
-    
-
-    
-
 }
 
  
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
 
  
 
@@ -690,37 +655,22 @@ int main()
 
 {    
 
-    
-
     while(true)
 
     {
 
-        
 
         if(crain.get_touch_pressed() == true)
 
         {
 
-     
-
-         
-
          Crain *crain = new Crain();
 
-         
-
-         *crain.execute();
-
-         
+         crain->execute();
 
          delete crain;
 
-         
 
-         
-
-         
 
         }
 
