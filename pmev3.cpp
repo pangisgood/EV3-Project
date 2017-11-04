@@ -664,7 +664,7 @@ void Crain::execute()
 
             move_neck(max_neck); //내려놓기
 
-            sleep(0.7);
+            sleep(0.1);
 
             move_hand(0); //떨구기
 
