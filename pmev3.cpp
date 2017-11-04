@@ -641,12 +641,12 @@ void Crain::execute()
             
             
            if(380){
-               move_foot(position+21);
+               move_foot(position+24);
                
                
            }
             else if(position>230){
-            move_foot(position+44);
+            move_foot(position+49);
              }
 //gg
 
