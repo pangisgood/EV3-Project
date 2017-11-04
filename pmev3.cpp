@@ -573,7 +573,7 @@ void Crain::execute()
 
     //max neck= 205(short) 192(long)
 
-    int flag = 1, max_foot = 570, max_neck = 220, max_hand = 75;
+    int flag = 1, max_foot = 560, max_neck = 220, max_hand = 75;
 
    
 
@@ -638,10 +638,16 @@ void Crain::execute()
             // if(position>){
                 
             // }
-
-            if(position>230){
+            
+            
+           if(380){
+               move_foot(position+20);
+               
+               
+           }
+            else if(position>230){
             move_foot(position+39);
-}
+             }
 
 
             else{ move_foot(position+22);}
@@ -668,7 +674,7 @@ void Crain::execute()
 
             move_neck(max_neck); //내려놓기
 
-            sleep(0.6);
+            sleep(1);
 
             move_hand(0); //떨구기
 
