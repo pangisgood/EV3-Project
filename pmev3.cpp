@@ -641,7 +641,7 @@ void Crain::execute()
             
             
            if(380){
-               move_foot(position+24);
+               move_foot(position+27);
                
                
            }
