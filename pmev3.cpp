@@ -1,117 +1,3 @@
-#include "h_crane.h"
-
- 
-
-class Crain : public CraneCrane
-
-{
-
-private:
-
-    ev3dev::touch_sensor touch_q;
-
-    ev3dev::motor a;
-
-    ev3dev::motor b; 
-
-    ev3dev::motor c;
-
-    ev3dev::color_sensor colorSensor;
-
-    ev3dev::ultrasonic_sensor ultra_q;
-
-    
-
-public:
-
-    // Hardware Configuration. 초기화 객체에 알맞은 포트 넣어줌. 
-
-    Crain():m_speed(0), touch_q(ev3dev::INPUT_1),a(ev3dev::OUTPUT_A), b(ev3dev::OUTPUT_B), c(ev3dev::OUTPUT_C), ultra_q(ev3dev::INPUT_4)
-
-    
-
-    {
-
-        
-
-    }
-
-    
-
-    
-
-    
-
-    int m_speed, pose, flag;
-
-    
-
-    double get_distance()
-
-    {
-
-        double dis;
-
-        
-
-        return ultra_q.distance_centimeters();
-
-        
-
-    }
-
-    
-
-    // bool is_black()   //이거 안씀
-
-    // {
-
-    //     return colorSensor.color() == 1;  //검정색이면 1==1 만족, 트루 반환?
-
-    // }
-
-    
-
-    bool get_touch_pressed()
-
-    {
-
-        return touch_q.is_pressed();
-
-    }
-
-    
-
-    virtual bool get_down()
-
-    {
-
-        return m_down; //처음엔 다 false로 되어있음. 
-
-    }
-
- 
-
-    virtual bool get_up()
-
-    {
-
-        return m_up;
-
-    }
-
- 
-
-    virtual bool get_right()
-
-    {
-
-        return m_right;
-
-    }
-
- 
-
     virtual bool get_left()
 
     {
@@ -146,7 +32,7 @@ public:
 
     {
 
-        return 800;
+        return 780;
 
     }
 
@@ -156,7 +42,7 @@ public:
 
     {
 
-        return 800;
+        return 660;
 
     }
 
@@ -184,7 +70,7 @@ public:
 
     {
 
-        return 500;
+        return 400;
 
     }
 
@@ -276,15 +162,7 @@ public:
 
     void move_hand(int pos);
 
-    void stop_foot();
-
-    void stop_neck();
-
-    void stop_hand();
-
     void reset_motors();
-
-    void zero_position_foot();
 
     int position_foot();
 
@@ -295,8 +173,6 @@ public:
     void practice();
 
     void getbackAuto();
-
-    bool is_over(int pos);
 
     void execute();
 
@@ -310,7 +186,7 @@ void Crain::move_foot_rfr()
 
 {
 
-    c.set_speed_sp(200);
+    c.set_speed_sp(100);
 
     c.run_forever();
 
@@ -332,21 +208,7 @@ void Crain::stop_foot_rfr()
 
  
 
-// 0~660 벗어났는지 확인
-
-bool Crain::is_over(int pos)
-
-{
-
-    if(pos > 650 || pos < -10)
-
-    {
-
-        return true;
-
-    }
-
-}
+ 
 
  
 
@@ -354,27 +216,27 @@ void Crain::getbackAuto()
 
 {
 
-    a.set_speed_sp(200);
+    a.set_speed_sp(100);
 
     a.set_position_sp(0);
 
     a.run_to_abs_pos();
 
-    sleep(2);
+    sleep(1);
 
     
 
-    b.set_speed_sp(200);
+    b.set_speed_sp(100);
 
     b.set_position_sp(0);
 
     b.run_to_abs_pos();
 
-    sleep(2);
+    sleep(1);
 
     
 
-    c.set_speed_sp(200);
+    c.set_speed_sp(100);
 
     c.set_position_sp(0);
 
@@ -386,13 +248,7 @@ void Crain::getbackAuto()
 
  
 
-void Crain::zero_position_foot()
-
-{
-
-    c.set_position(0);
-
-}
+ 
 
 void Crain::reset_motors()
 
@@ -408,49 +264,15 @@ void Crain::reset_motors()
 
  
 
-void Crain::stop_foot()
-
-{
-
-    //c.set_speed_sp(0);
-
-    //c.run_forever();
-
-    c.set_stop_action("hold");
-
-}
-
-void Crain::stop_neck()
-
-{
-
-    // b.set_speed_sp(0);
-
-    // b.run_forever();
-
-    b.set_stop_action("hold");
-
-    
-
-}
-
-void Crain::stop_hand()
-
-{
-
-    // a.set_speed_sp(0);
-
-    // a.run_forever();
-
-    a.set_stop_action("hold");
-
-}
+ 
 
 void Crain::move_foot(int pos)
 
 {
 
   
+
+    c.set_stop_action("hold");
 
     c.set_position_sp(pos);
 
@@ -470,7 +292,7 @@ void Crain::move_neck(int pos)
 
  
 
-    
+    b.set_stop_action("hold");
 
     b.set_position_sp(pos);
 
@@ -488,7 +310,7 @@ void Crain::move_hand(int pos)
 
    
 
-   
+    a.set_stop_action("hold");
 
     a.set_position_sp(pos);
 
@@ -534,6 +356,108 @@ int Crain::position_hand()
 
  
 
+ 
+
+void Crain::example_code()
+
+{ //This function is for example, you should develop your own logics
+
+    while(get_escape() == false)
+
+    {
+
+        set_down(ev3dev::button::down.pressed());
+
+        set_up(ev3dev::button::up.pressed());
+
+        set_right(ev3dev::button::right.pressed());
+
+        set_left(ev3dev::button::left.pressed());
+
+        set_escape(ev3dev::button::back.pressed());
+
+        set_enter(ev3dev::button::enter.pressed());
+
+        
+
+        if(get_up())
+
+        {   
+
+                b.set_speed_sp(-1*get_speed());
+
+                b.run_forever();
+
+        }   
+
+        if(get_down())
+
+        {
+
+                b.set_speed_sp(get_speed());
+
+                b.run_forever();
+
+        }
+
+        if(get_left())
+
+        {
+
+               c.set_speed_sp(get_speed());
+
+               c.run_forever();
+
+        }
+
+        if(get_right())
+
+        {
+
+               c.set_speed_sp(-1* get_speed());
+
+               c.run_forever();
+
+        }
+
+       
+
+       
+
+        if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
+
+        {
+
+            a.set_speed_sp(0);
+
+            a.run_forever();
+
+            b.set_speed_sp(0);
+
+            b.run_forever();
+
+            c.set_speed_sp(0);
+
+            c.run_forever();
+
+            
+
+        }
+
+    }
+
+ 
+
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
 void Crain::execute()
 
 {
@@ -542,19 +466,19 @@ void Crain::execute()
 
     double dis, position;
 
-    int turn =0, slT = 2;
+    int turn =0, slT = 1.3;
 
     //max neck= 205(short) 192(long)
 
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 70;
+    int flag = 1, max_foot = 570, max_neck = 220, max_hand = 75;
 
    
 
    
 
-   reset_motors();
+    reset_motors();
 
-   std::cout<< "a, b, c"<<position_hand() << position_neck() << position_foot() << std::endl;
+    std::cout<< "a, b, c"<<position_hand() << position_neck() << position_foot() << std::endl;
 
         
 
@@ -576,7 +500,9 @@ void Crain::execute()
 
                 //position = crain.position_foot();
 
-                //std::cout<< "POSITION         :" << position <<std::endl;
+                std::cout<< "POSITION B         :" << position_neck() <<std::endl;
+
+                
 
                 
 
@@ -604,21 +530,19 @@ void Crain::execute()
 
             sleep(slT);
 
-            
+            move_foot(position+35);
 
-            move_foot(position-30);
-
-            sleep(0.5);
+            sleep(1.0);
 
             move_neck(max_neck);
 
-            sleep(2.5);
+            sleep(slT);
 
             move_hand(max_hand);
 
             sleep(slT);
 
-            move_neck(0);
+            move_neck(0); 
 
             sleep(slT);
 
@@ -632,22 +556,53 @@ void Crain::execute()
 
             move_hand(0);
 
+            
+
+            if(flag == 3){break;}
+
+            
+
             sleep(slT);
 
             move_neck(0);
 
             sleep(slT);
 
-            move_foot(200);
+            // move_foot(position-50);  //runforever 끝지점이 0인가?
+            move_foot(position+50); 
+            sleep(1);
 
-            sleep(slT);
+            
+
+            flag += 1; 
 
             }
+
+    return;
 
 }
 
  
 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
  
 
@@ -655,54 +610,38 @@ int main()
 
 {    
 
+    Crain crain;
+
     while(true)
 
     {
 
+        
 
         if(crain.get_touch_pressed() == true)
 
         {
 
+            
+
          Crain *crain = new Crain();
+
+         
 
          crain->execute();
 
+         
+
          delete crain;
 
+        
 
+        
 
         }
+
+        
 
     }
 
 }
-
-
-
-// int main()
-
-// {    
-
-//     while(true)
-
-//     {
-
-
-//         if(crain.get_touch_pressed() == true)
-
-//         {
-
-//          Crain *crain = new Crain();
-
-//          (*crain).execute();
-
-//          delete crain;
-
-
-
-//         }
-
-//     }
-
-// }
