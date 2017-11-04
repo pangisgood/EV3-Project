@@ -145,7 +145,7 @@ public:
 
     {
 
-        return 600;
+        return 500;
 
     }
 
@@ -644,7 +644,7 @@ void Crain::execute()
 }
 
 
-            else{ move_foot(position+15);}
+            else{ move_foot(position+22);}
             
             
  
