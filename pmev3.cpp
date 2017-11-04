@@ -573,7 +573,7 @@ void Crain::execute()
 
     //max neck= 205(short) 192(long)
 
-    int flag = 1, max_foot = 560, max_neck = 220, max_hand = 75;
+    int flag = 1, max_foot = 565, max_neck = 220, max_hand = 75;
 
    
 
@@ -641,7 +641,7 @@ void Crain::execute()
             
             
            if(380){
-               move_foot(position+20);
+               move_foot(position+21);
                
                
            }
