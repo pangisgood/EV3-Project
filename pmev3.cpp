@@ -135,7 +135,7 @@ public:
 
     {
 
-        return 780;
+        return 660;
 
     }
 
@@ -145,7 +145,7 @@ public:
 
     {
 
-        return 660;
+        return 600;
 
     }
 
@@ -648,7 +648,7 @@ void Crain::execute()
             
             
  
-            sleep(1.2);
+            sleep(1.3);
 
             move_neck(max_neck);
 
