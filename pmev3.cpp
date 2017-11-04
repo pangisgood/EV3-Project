@@ -135,7 +135,7 @@ public:
 
     {
 
-        return 660;
+        return 800;
 
     }
 
@@ -145,7 +145,7 @@ public:
 
     {
 
-        return 500;
+        return 800;
 
     }
 
@@ -569,7 +569,7 @@ void Crain::execute()
 
     double dis, position;
 
-    int turn =0, slT = 1.3;
+    int turn =0, slT = 1.2;
 
     //max neck= 205(short) 192(long)
 
@@ -640,7 +640,7 @@ void Crain::execute()
             // }
             
             
-           if(380){
+           if(position>380){
                move_foot(position+27);
                
                
@@ -674,7 +674,7 @@ void Crain::execute()
 
             move_neck(max_neck); //내려놓기
 
-            sleep(1);
+            sleep(0.8);
 
             move_hand(0); //떨구기
 
