@@ -668,7 +668,7 @@ void Crain::execute()
 
             move_neck(max_neck); //내려놓기
 
-            sleep(0.1);
+            sleep(0.6);
 
             move_hand(0); //떨구기
 
@@ -685,7 +685,7 @@ void Crain::execute()
             sleep(slT);
             
              if(flag == 2){
-                    move_foot(position); 
+                    move_foot(position-30); 
                  
              }
             
@@ -755,12 +755,12 @@ int main()
 
          crain->execute();
 
-         
+         //crain->reset_motors();
 
          delete crain;
 
         
-
+  
         
 
         }
