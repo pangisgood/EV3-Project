@@ -741,7 +741,8 @@ int main()
 
 {    
 
-    Crain crain;
+    //Crain crain;
+             Crain *crain = new Crain();
 
     while(true)
 
@@ -749,13 +750,13 @@ int main()
 
         
 
-        if(crain.get_touch_pressed() == true)
+        if(crain->get_touch_pressed() == true)
 
         {
 
             
 
-         Crain *crain = new Crain();
+
 
          
 
@@ -763,16 +764,16 @@ int main()
 
          //crain->reset_motors();
 
-         delete crain;
+      
 
-        
-  
+         break;
+   
         
 
         }
 
-        
-
+         delete crain;
+// break;
     }
-
+  // delete crain;
 }
