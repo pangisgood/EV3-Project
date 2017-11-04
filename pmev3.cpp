@@ -646,11 +646,11 @@ void Crain::execute()
                
            }
             else if(position>230){
-            move_foot(position+39);
+            move_foot(position+43);
              }
 
 
-            else{ move_foot(position+22);}
+            else{ move_foot(position+26);}
             
             
  
