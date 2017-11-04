@@ -635,16 +635,20 @@ void Crain::execute()
 ////x?
            // sleep(0.5);
 
+            // if(position>){
+                
+            // }
+
             if(position>230){
             move_foot(position+39);
 }
 
 
-            else{ move_foot(position+10);}
+            else{ move_foot(position+15);}
             
             
  
-            sleep(1.0);
+            sleep(1.2);
 
             move_neck(max_neck);
 
